@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>收藏夹</title>
+    <link rel="stylesheet" href="button.css">
+</head>
+
+<body>
+    <a id="back-button">退</a>
+    <div id="links"></div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="button.js"></script>
+    <script>
+        // [1] 链接
+        window.links = [
+            //菜鸟教程
+            {
+                name: '菜鸟教程',
+                url: 'https://www.runoob.com/'
+            }, {
+                name: 'Batch 教程',
+                uir: 'https://www.tutorialspoint.com/batch_script/index.htm'
+            },
+            //C/C++相关
+            {
+                name: 'C/C++',
+                links: [{
+                    name: 'C 参考英文',
+                    url: 'https://en.cppreference.com/w/c'
+                }, {
+                    name: 'C 参考中文',
+                    url: 'https://zh.cppreference.com/w/c'
+                }, {
+                    name: 'C++ 参考英文',
+                    url: 'https://en.cppreference.com/w/'
+                }, {
+                    name: 'C++ 参考中文',
+                    url: 'https://zh.cppreference.com/w/'
+                }, ]
+            },
+            //微软相关文档
+            {
+                name: 'Microsoft 相关',
+                links: [{
+                    name: 'Microsoft docs',
+                    url: 'https://docs.microsoft.com/zh-cn/'
+                }, {
+                    name: 'Microsoft 学习',
+                    url: 'https://docs.microsoft.com/zh-cn/learn/browse/'
+                }, {
+                    name: 'Microsoft C++',
+                    url: 'https://docs.microsoft.com/zh-cn/cpp/?view=vs-2019'
+                }, {
+                    name: 'Visual studio文档',
+                    url: 'https://docs.microsoft.com/zh-cn/visualstudio/?view=vs-2019'
+                }, {
+                    name: 'Visual Studio extensions',
+                    url: 'https://marketplace.visualstudio.com/'
+                }, {
+                    name: 'Visual studio2019',
+                    url: 'https://docs.microsoft.com/zh-cn/visualstudio/get-started/visual-studio-ide?view=vs-2019'
+                }, {
+                    name: 'office办公软件学习',
+                    url: 'https://support.office.com/'
+                }, ]
+            },
+            //git学习
+            {
+                name: 'Git',
+                links: [{
+                    name: 'Git book',
+                    url: 'https://git-scm.com/book/zh/v2'
+                }, {
+                    name: 'Git 简明指南',
+                    url: 'https://www.runoob.com/manual/git-guide/'
+                }, {
+                    name: 'Gitlab 安装说明',
+                    url: 'https://about.gitlab.com/install/'
+                }, {
+                    name: 'Github 使用学习',
+                    url: 'https://lab.github.com/'
+                }, ]
+
+            },
+            //Github
+            {
+                name: 'Github',
+                links: [{
+                    name: 'Github 帮助（中文）',
+                    url: 'https://help.github.com/cn'
+                }, {
+                    name: 'Github 帮助(英文)',
+                    url: 'https://help.github.com/en'
+                }, {
+                    name: 'Github learning lab',
+                    url: 'https://lab.github.com/'
+                }, ]
+            },
+            //3D学习
+            {
+                name: 'opengl',
+                links: [{
+                        name: 'learnopengl英文',
+                        url: 'https://learnopengl.com/Introduction'
+                    }, {
+                        name: 'learnopengl中文1',
+                        url: 'https://learnopengl-cn.github.io/'
+                    }, {
+                        name: 'learnopengl中文2',
+                        url: 'https://learnopengl-cn.readthedocs.io/zh/latest/'
+                    }, {
+                        name: 'opengl官网',
+                        url: 'https://www.opengl.org/'
+                    }, {
+                        name: 'Assimp 3D模型加载库',
+                        url: 'http://assimp.sourceforge.net/lib_html/'
+                    }, {
+                        name: '虚幻引擎学习',
+                        url: 'https://docs.unrealengine.com/zh-CN/GettingStarted/index.html'
+                    },
+
+                ]
+            },
+            //3D模型
+            {
+                name: '3D模型',
+                links: [{
+                    name: 'Free3d',
+                    url: 'https://free3d.com/zh/'
+                }, {
+                    name: '3D侠盗',
+                    url: 'http://www.3dxia.com/'
+                }, {
+                    name: '3D溜溜',
+                    url: 'https://www.3d66.com/'
+                }, {
+                    name: '3DmodelFree',
+                    url: 'http://www.3dmodelfree.com/'
+                }, {
+                    name: '3Dexport',
+                    url: 'https://3dexport.com/'
+                }, {
+                    name: '3D学苑',
+                    url: 'https://www.3dxy.com/'
+                }, {
+                    name: '3Dgogogo',
+                    url: 'https://3dagogo.com/'
+                }, {
+                    name: '3Dshook',
+                    url: 'http://www.3dshook.com/'
+                }, {
+                    name: 'Cults法国',
+                    url: 'https://cults3d.com/'
+                }, {
+                    name: 'JOYCG韩国',
+                    url: 'https://www.joycg.com/jeditor/html/?id=&idx='
+                }, {
+                    name: '3DDD俄罗斯',
+                    url: 'https://3ddd.ru/'
+                }, {
+                    name: 'TurboSquid',
+                    url: 'https://www.turbosquid.com/'
+                }, {
+                    name: 'CG3dmodels',
+                    url: 'http://cg3dmodels.com/'
+                }, {
+                    name: 'Thingiverse3D打印厂商',
+                    url: 'https://www.thingiverse.com/'
+                }, {
+                    name: 'Pinshape',
+                    url: 'https://pinshape.com/'
+                }, {
+                    name: 'AutoDesk推荐1',
+                    url: 'https://www.tinkercad.com/'
+                }, {
+                    name: 'AutoDesk推荐2',
+                    url: 'https://www.autodesk.com/products/recap/overview#0'
+                }, ]
+            },
+
+            //公开课学习
+            {
+                name: '公开课',
+                links: [{
+                    name: '网易公开课',
+                    url: 'https://open.163.com/'
+                }, {
+                    name: '腾讯课堂',
+                    url: 'https://class.qq.com/'
+                }, {
+                    name: '中国慕课',
+                    url: 'https://www.icourse163.org/'
+                }, ]
+            },
+            //maya学习
+            {
+                name: 'Maya',
+                links: [{
+                    name: 'Maya2019帮助文档',
+                    url: 'http://help.autodesk.com/view/MAYAUL/2019/CHS/'
+                }, {
+                    name: 'Maya2019学习',
+                    url: 'http://help.autodesk.com/view/MAYAUL/2019/CHS/?guid=GUID-4191EE54-4500-4FFC-BF29-BA6C1EAD9F58'
+                }, {
+                    name: 'Maya快速入门',
+                    url: 'http://docs.autodesk.com/MAYAUL/2015/CHS/GettingStarted/#!/url=./files/landing_page.htm'
+                }, {
+                    name: 'Maya收费学习网站',
+                    url: 'https://www.yiihuu.com/tutorials/soft/2-0-0-71-0-0-0-0-0/'
+                }, ]
+            },
+
+            //微信小程序开发文档
+            {
+                name: '微信小程序',
+                url: 'https://developers.weixin.qq.com/miniprogram/dev/framework/'
+            },
+            //Icon相关
+            {
+                name: 'ICON相关网站',
+                links: [{
+                    name: '阿里巴巴矢量图库',
+                    url: 'http://www.iconfont.cn/'
+                }, {
+                    name: 'Flat icon',
+                    url: 'https://www.flaticon.com/free-icon/hummingbird_92027'
+                }, {
+                    name: 'EasyIcon',
+                    url: 'https://www.easyicon.net/iconsearch//'
+                }, {
+                    name: 'IconFinder',
+                    url: 'https://www.iconfinder.com/search/'
+                }, ]
+            },
+            //JavaScript相关
+            {
+                name: 'JavaScript相关',
+                links: [{
+                    name: '现代 Javascript 教程',
+                    url: 'https://zh.javascript.info'
+                }, {
+                    name: 'Code pen',
+                    url: 'https://codepen.io/'
+                }, {
+                    name: 'CSS 可视化',
+                    url: 'https://html-css-js.com/css/generator/'
+                }, ]
+            }, {
+                name: 'OSC 在线工具箱',
+                url: 'http://tool.oschina.net'
+            },
+            //visual market
+            {
+                name: 'Unreal engine',
+                links: [{
+                    name: '虚幻引擎4文档',
+                    url: 'https://docs.unrealengine.com/zh-CN/index.html'
+                }, {
+                    name: '虚幻引擎B站视频',
+                    url: 'https://www.bilibili.com/video/av61595751?p=1'
+                }, ]
+            },
+            //数据库
+            {
+                name: '数据库',
+                links: [{
+                    name: 'SQLite',
+                    url: 'https://www.sqlite.org/index.html'
+                }, {
+                    name: 'OceanBase',
+                    url: 'https://oceanbase.alipay.com/'
+                }, ]
+            },
+            //苹果支持
+            {
+                name: 'W3C',
+                url: 'https://www.w3.org/'
+            }, {
+                name: 'Apple 支持',
+                url: 'https://support.apple.com/zh-cn/'
+            },
+            //A站
+            {
+                name: 'A站',
+                links: [{
+                    name: 'A站',
+                    url: 'https://www.artstation.com/'
+                }, {
+                    name: 'B.O.W',
+                    url: 'https://www.artstation.com/artwork/rRNGwJ'
+                }, ]
+            },
+            //颜色工具箱
+            {
+                name: '颜色工具箱',
+                links: [{
+                    name: 'CSS 渐变背景',
+                    url: 'https://webgradients.com'
+                }, {
+                    name: '色阶',
+                    url: 'https://coolors.co/96bbbb-618985-a8aaa3-f2e3bc-c19875'
+                }, {
+                    name: '颜色码转换工具',
+                    url: 'https://www.sioe.cn/yingyong/yanse-rgb-16/'
+                }, {
+                    name: 'WEB 安全色',
+                    url: 'http://www.bootcss.com/p/websafecolors/'
+                }, {
+                    name: '调色板',
+                    url: 'http://paletton.com/#uid=11I0u0kv-llnqsWt1pMDygZNBby'
+                }, {
+                    name: 'Color Hex Color Codes',
+                    url: 'https://www.color-hex.com'
+                }, {
+                    name: 'Color Spaces',
+                    url: 'https://www.color-hex.com/color/777777'
+                }, {
+                    name: 'HSL Color Picker',
+                    url: 'http://hslpicker.com/#36c94c'
+                }, ]
+            }, {
+                name: 'Leetcode 题解',
+                url: 'https://mp.weixin.qq.com/s/DhfXloRLmZnm786jNPK90Q'
+            }, {
+                name: '缓动函数速查表',
+                url: 'https://easings.net'
+            }, {
+                name: '在线画函数曲线',
+                url: 'https://www.desmos.com/calculator'
+            },
+        ];
+        // [2] 创建链接的按钮
+        createButtons(window.links);
+    </script>
+</body>
+
+</html>
